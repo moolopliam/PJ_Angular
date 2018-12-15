@@ -1,0 +1,94 @@
+
+<app-content>
+    <style>
+        .col-center-block {
+            float: none;
+            display: block;
+            margin: 0 auto;
+            /* margin-left: auto; margin-right: auto; */
+        }
+        
+        .form-control.ng-invalid.ng-touched:not(:focus){
+            border-color: red;
+        
+        }
+               
+        </style>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class=""></h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-8 col-center-block">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color:rgb(131, 204, 22)">
+                    <i class=" fa-fw"></i> เพิ่มข้อมูลโต๊ะ
+                    <div class="pull-right">
+
+                    </div>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body ">
+                    <form   [formGroup]="Form" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">ชื่อโต๊ะ</label>
+                          <input   formControlName="tableName" [ngClass]="{ 'is-invalid': submitted && validate.tableName.errors }" class="form-control"  mdbInputDirective type="text"  >
+                          <div *ngIf="submitted && validate.tableName.errors" class="invalid-feedback">
+                              <div *ngIf="validate.tableName.errors.required" class="text-danger">*กรุณากรอก ชื่อโต๊ะ</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlSelect1">ประเภทโต๊ะ</label>
+                          <select  type="number" formControlName="tableTypeId" [ngClass]="{ 'is-invalid': submitted && validate.tableTypeId.errors }" mdbInputDirective  class="form-control" >
+                            <option  type="number">------------------------------------------เลือกประเภท--------------------------------</option>
+                            <option *ngFor="let item of itemType"  value="{{item.typeId}}" >{{item.typeName}}</option>
+                          </select>
+                          <div *ngIf="submitted && validate.tableTypeId.errors" class="invalid-feedback">
+                              <div *ngIf="validate.tableTypeId.errors.required" class="text-danger">*กรุณาเลือกประเภท</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="exampleFormControlTextarea1">รายละเอียดโต๊ะ</label>
+                          <textarea [ngClass]="{ 'is-invalid': submitted && validate.tableDetail.errors }" formControlName="tableDetail"   mdbInputDirective class="form-control"  rows="6"></textarea>
+                          <div *ngIf="submitted && validate.tableDetail.errors" class="invalid-feedback">
+                              <div *ngIf="validate.tableDetail.errors.required" class="text-danger">*กรุณากรอก รายละเอียดโต๊ะ</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">ราคา</label>
+                            <input  [ngClass]="{ 'is-invalid': submitted && validate.tablePrice.errors }"  type="number" formControlName="tablePrice" mdbInputDirective class="form-control"  >
+                            <div *ngIf="submitted && validate.tablePrice.errors" class="invalid-feedback">
+                                <div *ngIf="validate.tablePrice.errors.required" class="text-danger">*กรุณากรอก รายละเอียดโต๊ะ</div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleFormControlInput1">รูปภาพ</label>
+                              <input [ngClass]="{ 'is-invalid': submitted && validate.tableImg.errors }"  mdbInputDirective formControlName="tableImg" type="text" class="form-control"  >
+                              <small>กรุณากรณารูปภาพเป็น URL <small style="color:red">*ตัวอย่าง https://f.ptcdn.info/607/021/000/1406221754-IMG4559-o.jpg</small></small>
+                              <div *ngIf="submitted && validate.tableImg.errors" class="invalid-feedback">
+                                  <div *ngIf="validate.tableImg.errors.required" class="text-danger">*กรุณากรอก รายละเอียดโต๊ะ</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                 <button type="submit" class="btn btn-success">บันทึก</button>
+                            </div>
+                      </form>                                     
+                  </div>
+                  <!-- /.panel-body -->
+              </div>
+              <!-- /.panel -->
+              <!-- /.panel -->
+
+              <!-- /.panel -->
+          </div>
+          <!-- /.col-lg-8 -->
+          <!-- /.col-lg-4 -->
+      </div>
+      <!-- /.row -->
+</app-content>

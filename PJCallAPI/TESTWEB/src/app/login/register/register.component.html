@@ -1,0 +1,354 @@
+<style>
+.col-center-block {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    /* margin-left: auto; margin-right: auto; */
+}
+
+.form-control.ng-invalid.ng-touched:not(:focus){
+    border-color: red;
+
+}
+
+
+</style>
+<br>
+<br>
+
+<div class="container">
+    <div class="row main">
+        <div class="col-lg-8  col-center-block">
+            <div class="panel panel-green">
+                <div class="panel-heading text-center">
+                    <h1>
+                        <b>สมัครสมาชิก</b>
+                    </h1>
+                </div>
+                <div class="panel-body">
+                    <form
+                  
+                    [formGroup]="Form"
+                    (ngSubmit)="onSubmit()"
+                        class="form-horizontal col-lg-8 col-center-block"
+                        id="contact_form"
+                    >
+                    <div class="form-group ">
+                        <label
+                            for="name"
+                            class="cols-sm-2 control-label"
+                        
+                        >
+                            คำนำหน้าชื่อ
+                        </label>
+                        <div class="cols-sm-">
+                            <div class="input-group">
+                                <span class="input-group-addon" >
+                                    <i
+                                    class="fa fa-user fa"
+                                    aria-hidden="true"
+                                  
+                                    ></i>
+                                </span>
+                                <input
+                                formControlName="titleId"
+                                    class="form-control"
+                                    mdbInputDirective type="number"
+                                    placeholder="กรุณากรอก คำนำหน้าชื่อ"
+                                    [ngClass]="{ 'is-invalid': submitted && validate.titleId.errors }"
+                                >
+                            </div>
+                                    <div *ngIf="submitted && validate.titleId.errors" class="invalid-feedback">
+                                            <div *ngIf="validate.titleId.errors.required" class="text-danger">*กรุณาเลือกคำนำหน้าชื่อ</div>
+                                          </div>
+                        </div>
+                    </div>
+                        <div class="form-group ">
+                            <label
+                                for="name"
+                                class="cols-sm-2 control-label"
+                            
+                            >
+                                ชื่อ
+                            </label>
+                            <div class="cols-sm-">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class="fa fa-user fa"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                    formControlName="cusName"
+                                        class="form-control"
+                                        mdbInputDirective type="text"
+                                        placeholder="กรุณากรอก ชื่อ"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.cusName.errors }"
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.cusName.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.cusName.errors.required" class="text-danger">*กรุณากรอก ชื่อ</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                for="username"
+                                class="cols-sm-2 control-label"
+                            >
+                                นามสกุุล
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class="fa fa-users fa"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                    formControlName="cusLastName"
+                                        mdbInputDirective type="text"
+                                        class="form-control"
+                                        placeholder="กรุณากรอก นามสกุุล"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.cusLastName.errors }"
+
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.cusLastName.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.cusLastName.errors.required" class="text-danger">*กรุณากรอก นามสกุุล</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                for="username"
+                                class="cols-sm-2 control-label"
+                            >
+                                เบอร์โทร
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class=" glyphicon glyphicon-earphone"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                    formControlName="cusPhone"
+                                    mdbInputDirective type="text"
+                                        class="form-control"
+                                        placeholder="กรุณากรอก เบอร์โทร"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.cusPhone.errors }"
+
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.cusPhone.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.cusPhone.errors.required" class="text-danger">*กรุณากรอก เบอร์โทร</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                for="email"
+                                class="cols-sm-2 control-label"
+                            >
+                                รหัสบัตรประชาชน
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class="fas fa-address-card"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                    formControlName="cusCardId"
+                                    mdbInputDirective type="text"
+                                        class="form-control"
+                                        placeholder="กรุณากรอก  รหัสบัตรประชาชน"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.cusCardId.errors }"
+
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.cusCardId.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.cusCardId.errors.required" class="text-danger">*กรุณากรอก รหัสบัตรประชาชน</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                for="username"
+                                class="cols-sm-2 control-label"
+                            >
+                                Username
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class="fa fa-users fa"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                    class="form-control"
+                                    mdbInputDirective type="text"
+                                    formControlName="customerId"
+                                        placeholder="Enter your Username"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.customerId.errors }"
+
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.customerId.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.customerId.errors.required" class="text-danger">*กรุณากรอก username</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                for="password"
+                                class="cols-sm-2 control-label"
+                            >
+                                Password
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class="fa fa-lock fa-lg"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                    formControlName="cusPassWord"
+                                     mdbInputDirective type="password"
+                                        class="form-control"
+                                        placeholder="Enter your Password"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.cusPassWord.errors }"
+
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.cusPassWord.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.cusPassWord.errors.required" class="text-danger">*กรุณากรอก password</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                for="confirm"
+                                class="cols-sm-2 control-label"
+                            >
+                            ตำบล
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class="fas fa-warehouse"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                       formControlName="cusTambon"
+                                        mdbInputDirective type="text"                                 
+                                        class="form-control"
+                                        placeholder="กรุณากรอก ตำบล"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.cusTambon.errors }"
+
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.cusTambon.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.cusTambon.errors.required" class="text-danger">*กรุณากรอก ตำบล</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                for="confirm"
+                                class="cols-sm-2 control-label"
+                            >
+                            อำเภอ
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class="fas fa-warehouse t"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                    formControlName="cusAunper"
+                                    mdbInputDirective type="text"
+                                        class="form-control"
+                                        placeholder="กรุณากรอก อำเภอ"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.cusAunper.errors }"
+
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.cusAunper.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.cusAunper.errors.required" class="text-danger">*กรุณากรอก อำเภอ</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label
+                                for="confirm"
+                                class="cols-sm-2 control-label"
+                            >
+                            จังหวัด
+                            </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i
+                                            class="fas fa-warehouse"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </span>
+                                    <input
+                                    formControlName="cusCanghwad"
+                                    mdbInputDirective type="text"
+                                        class="form-control"
+                                        placeholder="กรุณากรอก จังหวัด"
+                                        [ngClass]="{ 'is-invalid': submitted && validate.cusCanghwad.errors }"
+
+                                    >
+                                </div>
+                                <div *ngIf="submitted && validate.cusCanghwad.errors" class="invalid-feedback">
+                                    <div *ngIf="validate.cusCanghwad.errors.required" class="text-danger">*กรุณากรอก จังหวัด</div>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <button
+                                type="submit"
+                                class="btn btn-primary btn-lg btn-block login-button"
+                            >
+                                สมัคร
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="panel-footer">Panel Footer</div>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+    </div>
+</div>
+<br>
+<br>

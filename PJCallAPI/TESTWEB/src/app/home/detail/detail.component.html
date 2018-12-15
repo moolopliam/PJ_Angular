@@ -1,0 +1,27 @@
+<app-content>
+  <style>
+         .col-center-block {
+            float: none;
+            display: block;
+            margin: 0 auto;
+            /* margin-left: auto; margin-right: auto; */
+        }
+    </style>
+  <br>
+<div class="container">
+<div class="row">
+    <div class="col-md-6">
+      <a href="#">
+        <img class="img-fluid rounded mb-6 mb-md-0 "  src="{{Detail.tableImg}}" width="700" height="400" alt="">
+      </a>
+    </div>
+    <div class="col-md-12">
+      <h3>{{Detail.tableName}}</h3>
+      <p>{{Detail.tableDetail}}</p>
+      <a class="btn btn-primary" href="#">฿{{Detail.tablePrice}}</a>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+
+</app-content>
